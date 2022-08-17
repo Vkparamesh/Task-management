@@ -1,0 +1,29 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    font: 1em sans-serif;
+}
+
+.new-task-button {
+    position: fixed;
+    bottom: 0%;
+    right: 0%;
+    padding: 10px;
+    z-index: 3;
+    width: 100%;
+}
+
+body {
+    background-color: #373e98 !important;
+}
+
+button {
+    background-color: #fee36e !important;
+    outline: solid 1px #fee36e !important;
+}
+
+@media (min-width: 993px) {
+    .new-task-button {
+        display: none;
+    }
+}
