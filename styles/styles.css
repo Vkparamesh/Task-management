@@ -1,7 +1,7 @@
 * {
     padding: 0%;
     margin: 0%;
-    font: 1em sans-serif;
+    font: 1em sans-serif !important;
 }
 
 .new-task-button {
@@ -17,9 +17,25 @@ body {
     background-color: #373e98 !important;
 }
 
+
+.modal-body,
+.modal-footer,
+.modal-header {
+    background-color: #373e98 !important;
+    color: white;
+}
+
 button {
     background-color: #fee36e !important;
-    outline: solid 1px #fee36e !important;
+}
+
+.btn-close {
+    background-color: transparent !important;
+}
+
+.btn {
+    color: black !important;
+    outline: none !important;
 }
 
 @media (min-width: 993px) {

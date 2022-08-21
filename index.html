@@ -46,36 +46,44 @@
                 <div class="col-md-6">
                     <div class="input-group flex-nowrap shadow-lg rounded">
                         <input type="search" class="form-control" placeholder="Search Tasks..">
-                        <span class="input-group-text" id="search"> <i class="fas fa-search"></i></span>
+                        <span class="input-group-text" id="search"><i class="fas fa-search"></i></span>
 
                     </div>
                 </div>
             </div>
         </section>
         <!-- Modal -->
-        <div class="modal fade modal-dialog modal-dialog-centered" id="input-field" data-bs-backdrop="static"
-            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
+        <div class="modal fade" id="input-field" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color:#373e98;">
-                        <h5 class="modal-title text-light" id="input-fieldLabel">New Task</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Add Task</h5>
+                        <button type="button" data-bs-dismiss="modal" class="btn-close btn-close-white"
+                            aria-label="Close"></button>
                     </div>
-                    <!-- BOODY -->
-                    <div class="modal-body d-flex gap-2  align-items-xl-start flex-column"
-                        style="background-color:#373e98;">
+                    <div class="modal-body  d-flex flex-column gap-2">
                         <label for="url" class="text-light">Image Url</label>
-                        <input type="url" name="url" id="url" class="input-group-text w-100">
+                        <input type="url" placeholder="www.example image.com" name="url" id="url"
+                            class="input-group-text w-100 text-start ">
                         <label for="title" class="text-light">Enter Title</label>
-                        <input type="text" name="title" id="title" class="input-group-text w-100">
+                        <input type="text" name="title" placeholder="To read" id="title"
+                            class=" text-start input-group-text w-100">
+                        <label for="type" class="text-light">Enter Task type</label>
+                        <input type="text" name="type" placeholder="Studying" id="type"
+                            class="input-group-text text-start w-100">
+                        <label for="Description" class="text-light">Enter Descriptiom</label>
+                        <textarea class="form-control" id="taskDescription" placeholder="Explain something about it..."
+                            rows="4" required></textarea>
                     </div>
-                    <div class="modal-footer" style="background-color:#373e98;">
+                    <div class="modal-footer">
                         <button type="button" class="btn " data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn ">Save changes</button>
+                        <button type="button" class="btn ">Save Task</button>
                     </div>
                 </div>
             </div>
         </div>
+
         <section class="mt-3">
             <div class="row task-content">
 
