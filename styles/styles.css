@@ -38,6 +38,8 @@ button {
     outline: none !important;
 }
 
+.task-card {}
+
 @media (min-width: 993px) {
     .new-task-button {
         display: none;
