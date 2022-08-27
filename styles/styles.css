@@ -1,7 +1,7 @@
 * {
     padding: 0%;
     margin: 0%;
-    font: 1em sans-serif !important;
+    font: 1em sans-serif;
 }
 
 .new-task-button {
@@ -38,7 +38,7 @@ button {
     outline: none !important;
 }
 
-.task-card {}
+
 
 @media (min-width: 993px) {
     .new-task-button {

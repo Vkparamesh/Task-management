@@ -19,6 +19,7 @@ const htmlTaskContent = ({
     <button type="button" class='btn btn-outline-danger mr-2' name=${id}>
     <i class= "fas fa-trash-alt " name=${id}></i>
     </button>
+    </div>
     <div class='card-body'>
     ${url && `<img width='100%' src=${url} alt='card image cap' class='card-image-top md-3 rounded-lg'/>`
     }
@@ -76,4 +77,25 @@ const LoadInitialData = () => {
     const localStorageCopy = JSON.parse(localStorageCopy.task);
 
     if (localStorageCopy) state.taskList = localStorageCopy.tasks;
+    state.taskList.map((cardData) => {
+        taskContent.insertAdjacentHTML("beforeend", htmlTaskContent(cardData))
+    })
 }
+
+const handleSubmit = (event) => {
+    const id = `${Date.now()}`;
+    const input = {
+        url: document.getElementById("url").value,
+        title: document.getElementById("title").value,
+        type: document.getElementById("type").value,
+        description: document.getElementById("taskDescription").value,
+    }
+    taskContent.insertAdjacentHTML(
+        "beforeend", htmlTaskContent({
+            ...input, id,
+        })
+    )
+    state.taskList.push({ ...input, id })
+    updateLocalStorage();
+}
+
