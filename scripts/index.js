@@ -21,7 +21,13 @@ const htmlTaskContent = ({
     </button>
     </div>
     <div class='card-body'>
-    ${url && `<img width='100%' src=${url} alt='card image cap' class='card-image-top md-3 rounded-lg'/>`
+    ${url
+        ? `
+          <img width='100%' src=${url} alt='card image cap' class='img-fluid place__holder__image mb-3' />
+        `
+        : `
+        <img width='100%' src="https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png" alt='card image cap' class='img-fluid place__holder__image mb-3' />
+        `
     }
     <h4 classs='task--card--title'>${title}</h4>
     <p class='task--description trim-3-lines text-muted' data-gram_editor='false'>${description}</P>
@@ -48,9 +54,14 @@ const htmlModalContent = ({ id, title, description, url }) => {
     const date = new Date(parseInt(id));
     return `
     <div id=${id}>
-    ${url && `<img width='100%' src=${url} alt='card image cap' class='img-fluid place--holder--image  mb-3'/>`
+    ${url
+            ? `
+          <img width='100%' src=${url} alt='card image cap' class='img-fluid place__holder__image mb-3' />
+        `
+            : `
+        <img width='100%' src="https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png" alt='card image cap' class='img-fluid place__holder__image mb-3' />
+        `
         }
-    
     <strong class='text-sm text-muted'>Created on${date.toDateString()}</strong>
         <h2 class='my-3'>${title}</h2>
         <p class='lead'>${description}</p>
@@ -64,7 +75,7 @@ const htmlModalContent = ({ id, title, description, url }) => {
 //local storage creating function
 
 const updateLocalStorage = () => {
-    localStorage.setItem("task",
+    localStorage.setItem("tasks",
         JSON.stringify({
             tasks: state.taskList,
         })
@@ -74,13 +85,14 @@ const updateLocalStorage = () => {
 //staing load storage 
 
 const LoadInitialData = () => {
-    const localStorageCopy = JSON.parse(localStorageCopy.task);
+    const localStorageCopy = JSON.parse(localStorage.tasks);
 
     if (localStorageCopy) state.taskList = localStorageCopy.tasks;
+
     state.taskList.map((cardData) => {
-        taskContent.insertAdjacentHTML("beforeend", htmlTaskContent(cardData))
-    })
-}
+        taskContent.insertAdjacentHTML("beforeend", htmlTaskContent(cardData));
+    });
+};
 
 const handleSubmit = (event) => {
     const id = `${Date.now()}`;
@@ -90,12 +102,19 @@ const handleSubmit = (event) => {
         type: document.getElementById("type").value,
         description: document.getElementById("taskDescription").value,
     }
+    if (input.title === '' || input.description === "" || input.type === "") {
+        return alert("please fill the every field");
+    }
     taskContent.insertAdjacentHTML(
-        "beforeend", htmlTaskContent({
-            ...input, id,
+        "beforeend",
+        htmlTaskContent({
+            ...input,
+            id,
         })
     )
     state.taskList.push({ ...input, id })
     updateLocalStorage();
 }
+
+
 
