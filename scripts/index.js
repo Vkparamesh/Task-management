@@ -17,7 +17,7 @@ const htmlTaskContent = ({
     <i class= "fas fa-pencil-alt " name=${id}></i>
     </button>
     <button type="button" class='btn btn-outline-danger mr-2'onclick='deleteTask.apply(this, arguments)' name=${id}>
-    <i class= "fas fa-trash-alt "onclick='deleteTask.apply(this, arguments)' name=${id}></i>
+    <i class= "fas fa-trash-alt "name=${id}></i>
     </button>
     </div>
     <div class='card-body'>
