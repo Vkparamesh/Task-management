@@ -10,13 +10,13 @@ const taskModel = document.querySelector('.task-modal-body');
 const htmlTaskContent = ({
     id, title, description, type, url
 }) =>
-    `<div class='col-md-6 col-lg-4 mt-3 'id=${id} key=${id} >
+    `<div class='col-md-6 col-lg-4 mt-3 d-flex flex-wrap'id=${id} key=${id} >
     <div class="card  shadow-sm task-card" style="width: 18rem;">
     <div class='card-header d-flex gap-2 justify-content-end task-card-header'>
-    <button type="button" class='btn btn-outline-info mr-2'  onclick='editTask.apply(this, arguments)' name=${id}>
+    <button type="button" class='btn btn-outline-dark mr-2'  onclick='editTask.apply(this, arguments)' name=${id}>
     <i class= "fas fa-pencil-alt " name=${id}></i>
     </button>
-    <button type="button" class='btn btn-outline-danger mr-2'onclick='deleteTask.apply(this, arguments)' name=${id}>
+    <button type="button" class='btn btn-outline-dark mr-2'onclick='deleteTask.apply(this, arguments)' name=${id}>
     <i class= "fas fa-trash-alt "name=${id}></i>
     </button>
     </div>
@@ -26,17 +26,19 @@ const htmlTaskContent = ({
           <img width='100%' src=${url} alt='card image cap' class='img-fluid place__holder__image mb-3' />
         `
         : `
-        <img width='100%' src="https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png" alt='card image cap' class='img-fluid place__holder__image mb-3' />
+        <img width='100%' src="https://cdn.pixabay.com/photo/2016/06/03/08/18/lets-do-it-1432952__340.png" alt='card image cap' class='img-fluid place__holder__image mb-3' />
         `
     }
-    <h4 classs='task--card--title'>${title}</h4>
-    <p class='task--description trim-3-lines text-muted' data-gram_editor='false'>${description}</P>
+    <div class = 'for-border'>
+    <h2 classs='task--card--title'> Title: ${title}</h2>
+    <p class='task--description trim-3-lines ' data-gram_editor='false'>${description}</P>
     <div class='tags text-white d-flex flex-wrap'>
-    <span class= 'badge bg-primary m-1'>${type}</span>
+    <span class= 'badge bg-light text-dark '>Task-Type:${type}</span>
+    </div>
     </div>
     </div>
     <div class='card-footer'>
-    <button type="button" class='btn btn-outline-info mr-2'  id=${id}
+    <button type="button" class='btn btn-outline-dark mr-2'  id=${id}
     onclick='openTask.apply(this, arguments)' data-bs-toggle='modal' data-bs-target=#showTask >
     open Task
     </button>
@@ -60,7 +62,7 @@ const htmlModalContent = ({ id, title, description, url }) => {
           <img width='100%' src=${url} alt='card image cap' class='img-fluid place__holder__image mb-3' />
         `
             : `
-        <img width='100%' src="https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png" alt='card image cap' class='img-fluid place__holder__image mb-3' />
+        <img width='100%' src="https://cdn.pixabay.com/photo/2016/06/03/08/18/lets-do-it-1432952__340.png" alt='card image cap' class='img-fluid place__holder__image mb-3' />
         `
         }
     <strong class='text-sm '>Created on${date.toDateString()}</strong>

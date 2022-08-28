@@ -2,6 +2,7 @@
     padding: 0%;
     margin: 0%;
     font: 1em sans-serif;
+    font-family: 'Comfortaa', cursive;
 }
 
 .new-task-button {
@@ -13,20 +14,65 @@
     width: 100%;
 }
 
-body {
-    background-color: #373e98 !important;
+.for-border {
+    border: white solid 1px;
+    border-radius: 5px;
+    padding: 5px;
+
 }
+
+/* COLOR CODES #0C0032 #190061 #240090 #3500D3 #282828 */
+h2 {
+
+    color: white;
+
+    font-size: 1.5rem !important;
+}
+
+p {
+    color: white !important;
+    font-size: 1rem !important;
+}
+
+img {
+    height: 150px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border: white solid 1px;
+    border-radius: 5px;
+}
+
+
+body {
+    background-color: #282828 !important;
+}
+
+.card-body,
+.card-footer,
+.task-card-header {
+    background-color: #282828 !important;
+    outline: white solid 1px;
+
+}
+
+.task--card--title,
+.task--description,
+.tags {
+
+    color: white !important;
+}
+
 
 
 .modal-body,
 .modal-footer,
 .modal-header {
-    background-color: #373e98 !important;
+    background-color: #282828 !important;
     color: white;
 }
 
 button {
-    background-color: #fee36e !important;
+    background-color: white !important;
 }
 
 .btn-close {
