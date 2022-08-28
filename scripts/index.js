@@ -31,7 +31,8 @@ const htmlTaskContent = ({
     }
     <div class = 'for-border'>
     <h2 classs='task--card--title'> Title: ${title}</h2>
-    <p class='task--description trim-3-lines ' data-gram_editor='false'>${description}</P>
+    <p class='task--description trim-3-lines ' data-gram_editor='false'>Description:
+    ${description}</P>
     <div class='tags text-white d-flex flex-wrap'>
     <span class= 'badge bg-light text-dark '>Task-Type:${type}</span>
     </div>
@@ -152,12 +153,12 @@ const editTask = (e) => {
 
     const targetID = e.target.id;
     const type = e.target.tagName;
-
     let parentNode;
     let taskTitle;
     let taskDescription;
     let taskType;
     let submitButton;
+
 
     if (type === "BUTTON") {
         parentNode = e.target.parentNode.parentNode;
@@ -165,11 +166,11 @@ const editTask = (e) => {
         parentNode = e.target.parentNode.parentNode.parentNode;
     }
 
-    taskTitle = parentNode.childNodes[3].childNodes[3];
-    taskDescription = parentNode.childNodes[3].childNodes[5];
-    taskType = parentNode.childNodes[3].childNodes[7].childNodes[1];
-    submitButton = parentNode.childNodes[5].childNodes[1];
 
+    taskTitle = parentNode.childNodes[3].childNodes[3].childNodes[1];
+    taskDescription = parentNode.childNodes[3].childNodes[3].childNodes[3];
+    taskType = parentNode.childNodes[3].childNodes[3].childNodes[5].childNodes[1];
+    submitButton = parentNode.childNodes[5].childNodes[1];
     taskTitle.setAttribute("contenteditable", "true");
     taskDescription.setAttribute("contenteditable", "true");
     taskType.setAttribute("contenteditable", "true");
@@ -187,9 +188,9 @@ const saveEdit = (e) => {
     const parentNode = e.target.parentNode.parentNode;
     // console.log(parentNode.childNodes);
 
-    const taskTitle = parentNode.childNodes[3].childNodes[3];
-    const taskDescription = parentNode.childNodes[3].childNodes[5];
-    const taskType = parentNode.childNodes[3].childNodes[7].childNodes[1];
+    const taskTitle = parentNode.childNodes[3].childNodes[3].childNodes[1];
+    const taskDescription = parentNode.childNodes[3].childNodes[3].childNodes[3];
+    const taskType = parentNode.childNodes[3].childNodes[3].childNodes[5].childNodes[1];
     const submitButton = parentNode.childNodes[5].childNodes[1];
 
     const updateData = {
