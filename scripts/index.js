@@ -16,8 +16,8 @@ const htmlTaskContent = ({
     <button type="button" class='btn btn-outline-info mr-2' name=${id}>
     <i class= "fas fa-pencil-alt " name=${id}></i>
     </button>
-    <button type="button" class='btn btn-outline-danger mr-2' name=${id}>
-    <i class= "fas fa-trash-alt " name=${id}></i>
+    <button type="button" class='btn btn-outline-danger mr-2'onclick='deleteTask.apply(this, arguments)' name=${id}>
+    <i class= "fas fa-trash-alt "onclick='deleteTask.apply(this, arguments)' name=${id}></i>
     </button>
     </div>
     <div class='card-body'>
@@ -63,7 +63,7 @@ const htmlModalContent = ({ id, title, description, url }) => {
         <img width='100%' src="https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png" alt='card image cap' class='img-fluid place__holder__image mb-3' />
         `
         }
-    <strong class='text-sm text-muted'>Created on${date.toDateString()}</strong>
+    <strong class='text-sm '>Created on${date.toDateString()}</strong>
         <h2 class='my-3'>${title}</h2>
         <p class='lead'>${description}</p>
     </div>
@@ -123,6 +123,26 @@ const openTask = (e) => {
 
     const getTask = state.taskList.find(({ id }) => id === e.target.id);
     taskModel.innerHTML = htmlModalContent(getTask);
+};
+
+
+const deleteTask = (e) => {
+    if (!e) e = window.event;
+    const targetID = e.target.getAttribute("name");
+    const type = e.target.tagName;
+    const removeTask = state.taskList.filter(({ id }) => id !== targetID);
+    state.taskList = removeTask;
+
+    updateLocalStorage();
+    if (type === "BUTTON") {
+        return e.target.parentNode.parentNode.parentNode.parentNode.removeChild(
+            e.target.parentNode.parentNode.parentNode
+        );
+    }
+
+    return e.target.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(
+        e.target.parentNode.parentNode.parentNode.parentNode
+    );
 };
 
 
