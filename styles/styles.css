@@ -2,7 +2,8 @@
     padding: 0%;
     margin: 0%;
     font: 1em sans-serif;
-    font-family: 'Comfortaa';
+    /* font-family: 'Arima', sans-serif; */
+    font-family: 'Comfortaa', sans-serif;
 }
 
 .new-task-button {
