@@ -8,7 +8,7 @@ const taskModel = document.querySelector('.task-modal-body');
 // Genrating htlm
 
 const htmlTaskContent = ({
-    id, title, description, tag, url
+    id, title, description, type, url
 }) =>
     `<div class='col-md-6 col-lg-4 mt-3 'id=${id} key=${id} >
     <div class="card  shadow-sm task-card" style="width: 18rem;">
@@ -32,11 +32,12 @@ const htmlTaskContent = ({
     <h4 classs='task--card--title'>${title}</h4>
     <p class='task--description trim-3-lines text-muted' data-gram_editor='false'>${description}</P>
     <div class='tags text-white d-flex flex-wrap'>
-    <span class= 'badge bg-primary m-1'>${tag}</span>
+    <span class= 'badge bg-primary m-1'>${type}</span>
     </div>
     </div>
     <div class='card-footer'>
-    <button type="button" class='btn btn-outline-info mr-2 data-bs-toggle='modal' data-bs-toggle=#showTask >
+    <button type="button" class='btn btn-outline-info mr-2'  id=${id}
+    onclick='openTask.apply(this, arguments)' data-bs-toggle='modal' data-bs-target=#showTask >
     open Task
     </button>
     </div>
@@ -114,7 +115,14 @@ const handleSubmit = (event) => {
     )
     state.taskList.push({ ...input, id })
     updateLocalStorage();
-}
+};
 
+
+const openTask = (e) => {
+    if (!e) e = window.event;
+
+    const getTask = state.taskList.find(({ id }) => id === e.target.id);
+    taskModel.innerHTML = htmlModalContent(getTask);
+};
 
 
