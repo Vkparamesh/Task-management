@@ -45,9 +45,10 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="input-group flex-nowrap shadow-lg rounded">
-                        <input type="search" class="form-control" placeholder="Search Tasks..">
-                        <button class="btn "> <i class="fas fa-magnifying-glass"></i>search
-                        </button>
+                        <input type="search" class="form-control" oninput="searchTask.apply(this,arguments)"
+                            placeholder="Search Tasks.."><span class="input-group-text"><i
+                                class="fas fa-magnifying-glass"></i></span>
+
 
                     </div>
                 </div>
@@ -63,55 +64,56 @@
                         <button type="button" data-bs-dismiss="modal" class="btn-close btn-close-white"
                             aria-label="Close"></button>
                     </div>
-                    <form onsubmit="return false">
-                        <div class="modal-body  d-flex flex-column gap-2">
-                            <label for="url" class="text-light">Image Url</label>
-                            <input type="url" placeholder="www.example image.com" name="url" id="url"
-                                class="input-group-text w-100 text-start ">
-                            <label for="title" class="text-light">Enter Title</label>
-                            <input type="text" name="title" placeholder="To read" id="title"
-                                class=" text-start input-group-text w-100" required>
-                            <label for="type" class="text-light">Enter Task type</label>
-                            <input type="text" name="type" placeholder="Studying" id="type"
-                                class="input-group-text text-start w-100" required>
-                            <label for="Description" class="text-light">Enter Descriptiom</label>
-                            <textarea class="form-control" id="taskDescription"
-                                placeholder="Explain something about it..." rows="4" required></textarea>
-                        </div>
+                    <form ">
+                        <div class=" modal-body d-flex flex-column gap-2">
+                        <label for="url" class="text-light">Image Url</label>
+                        <input type="url" placeholder="www.example image.com" name="url" id="url"
+                            class="input-group-text w-100 text-start ">
+                        <label for="title" class="text-light">Enter Title</label>
+                        <input type="text" name="title" placeholder="To read" id="title"
+                            class=" text-start input-group-text w-100" required>
+                        <label for="type" class="text-light">Enter Task type</label>
+                        <input type="text" name="type" placeholder="Studying" id="type"
+                            class="input-group-text text-start w-100" required>
+                        <label for="Description" class="text-light">Enter Descriptiom</label>
+                        <textarea class="form-control" id="taskDescription" placeholder="Explain something about it..."
+                            rows="4" required></textarea>
+                </div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn " data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn" onclick="handleSubmit()">Save Task</button>
-                        </div>
-                    </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn " data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn" data-bs-dismiss="modal" onclick="handleSubmit()">Save
+                        Task</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal fade" id="showTask" tabindex="-1" aria-labelledby="showTasklable" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="showTasklable">Task Details </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body task-modal-body">
+                    <!-- card will be inset here  -->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Modal 2 -->
-        <div class="modal fade" id="showTask" tabindex="-1" aria-labelledby="showTasklable" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="showTasklable">Task Details </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body task-modal-body">
-                        <!-- card will be inset here  -->
+    <section class=" mt-3">
+        <div class="row task-content">
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
         </div>
-
-        <section class=" mt-3">
-            <div class="row task-content">
-
-            </div>
-        </section>
+    </section>
 
 
     </div>
